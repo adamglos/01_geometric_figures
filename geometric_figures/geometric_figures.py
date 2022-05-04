@@ -99,9 +99,44 @@ class Square(Figure):
 
     @property
     def area(self):
-        return self._side
+        return self._area
 
     @area.setter
     def area(self, value):
         self._area = value
         self._side = sqrt(value)
+
+
+class Triangle(Figure):
+    def __init__(self, value):
+        self._side = value
+        self._area = (value**2 * sqrt(3)) / 4
+
+    def __str__(self):
+        return str(f"Trójkąt (bok={self.side}, pole={round(self.area, 2)})")
+
+    def __add__(self, other):
+        joint_area = self.area + other.area
+        joint_side = sqrt((4 * joint_area) / sqrt(3))
+        return Triangle(joint_side)
+
+    @property
+    def side(self):
+        return self._side
+
+    @side.setter
+    def side(self, value):
+        if value > 0:
+            self._side = value
+            self._area = (value**2 * sqrt(3)) / 4
+        else:
+            raise ValueError("Bok nie może być ujemny!")
+
+    @property
+    def area(self):
+        return self._area
+
+    @area.setter
+    def area(self, value):
+        self._area = value
+        self._side = sqrt((4 * value) / sqrt(3))

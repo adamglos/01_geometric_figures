@@ -108,7 +108,7 @@ def test_triangle_addition():
     t2 = Triangle(3)
     t3 = t1 + t2
     assert type(t3) == Triangle
-    assert round(t3.area, 0) == round(t1.area + t2.area, 0) == 13
+    assert round(t3.area, 2) == round(t1.area + t2.area, 2) == 5.63
 
 
 def test_circle_triangle_addition():
