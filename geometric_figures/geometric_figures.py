@@ -1,7 +1,18 @@
 from math import pi, sqrt
 
 
-class Circle:
+class Figure:
+    def __eq__(self, other):
+        return self.area == other.area
+
+    def __gt__(self, other):
+        return self.area > other.area
+
+    def __ge__(self, other):
+        return self.area >= other.area
+
+
+class Circle(Figure):
     def __init__(self, radius):
         self._radius = radius
         self._diameter = self.radius * 2
@@ -16,15 +27,6 @@ class Circle:
         joint_area = self.area + other.area
         joint_radius = sqrt(joint_area / pi)
         return Circle(joint_radius)
-
-    def __eq__(self, other):
-        return self.area == other.area
-
-    def __gt__(self, other):
-        return self.area > other.area
-
-    def __ge__(self, other):
-        return self.area >= other.area
 
     @property
     def radius(self):
@@ -61,7 +63,7 @@ class Circle:
             self._diameter = self._radius / 2
 
 
-class Square:
+class Square(Figure):
     def __init__(self, side):
         self._side = side
         self._area = side**2
@@ -73,15 +75,6 @@ class Square:
         joint_area = self.area + other.area
         joint_side = sqrt(joint_area)
         return Square(joint_side)
-
-    def __eq__(self, other):
-        return self.area == other.area
-
-    def __gt__(self, other):
-        return self.area > other.area
-
-    def __ge__(self, other):
-        return self.area >= other.area
 
     @property
     def side(self):
