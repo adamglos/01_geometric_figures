@@ -1,5 +1,5 @@
 import pytest
-from geometric_figures.geometric_figures import Circle, Square
+from geometric_figures.geometric_figures import Circle, Square, Triangle
 
 
 def test_circle_area():
@@ -87,4 +87,34 @@ def test_circle_square_addition():
     j1 = s1 + c1
     assert type(j1) == type(s1)
     j2 = c1 + s1
+    assert type(j2) == type(c1)
+
+
+def test_triangle_comparison():
+    t1 = Triangle(1)
+    t2 = Triangle(2)
+    t3 = Triangle(2)
+    t4 = Triangle(4)
+
+    assert t2 == t3
+    assert t2 >= t3
+    assert t3 <= t2
+    assert t1 < t2 < t4
+    assert t4 > t3 > t1
+
+
+def test_triangle_addition():
+    t1 = Triangle(2)
+    t2 = Triangle(3)
+    t3 = t1 + t2
+    assert type(t3) == Triangle
+    assert round(t3.area, 0) == round(t1.area + t2.area, 0) == 13
+
+
+def test_circle_triangle_addition():
+    t1 = Triangle(2)
+    c1 = Circle(2)
+    j1 = t1 + c1
+    assert type(j1) == type(t1)
+    j2 = c1 + t1
     assert type(j2) == type(c1)
