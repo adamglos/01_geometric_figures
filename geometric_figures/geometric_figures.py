@@ -1,4 +1,6 @@
 from math import pi, sqrt
+from msilib.schema import Class
+from sunau import Au_read
 
 
 class Circle:
@@ -59,3 +61,34 @@ class Circle:
             self._area = value
             self._radius = sqrt(self.area / pi)
             self._diameter = self._radius / 2
+
+
+class Square:
+    def __init__(self, side):
+        self._side = side
+        self._area = side**2
+
+    @property
+    def side(self):
+        return self._side
+
+    @side.setter
+    def side(self, value):
+        if value > 0:
+            self._side = value
+            self._area = value**2
+        else:
+            raise ValueError("Bok nie może być ujemny!")
+
+    @property
+    def area(self):
+        return self._side
+
+    @area.setter
+    def area(self, value):
+        self._area = value
+        self._side = sqrt(value)
+
+    @property
+    def area(self):
+        return self._area

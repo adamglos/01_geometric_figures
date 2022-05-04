@@ -1,5 +1,5 @@
 import pytest
-from geometric_figures.geometric_figures import Circle
+from geometric_figures.geometric_figures import Circle, Square
 
 
 def test_circle_area():
@@ -55,6 +55,9 @@ def test_square_area():
     assert s2.area != 4
     s1.side = 3
     assert s1.side == s2.side
+
+
+# TODO test_negative_side_raises_exception():
 
 
 def test_square_comparison():
