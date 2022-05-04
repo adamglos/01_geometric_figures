@@ -79,3 +79,12 @@ def test_square_addition():
     s3 = s1 + s2
     assert type(s3) == Square
     assert round(s3.area, 0) == round(s1.area + s2.area, 0) == 13
+
+
+def test_circle_square_addition():
+    s1 = Square(2)
+    c1 = Circle(2)
+    j1 = s1 + c1
+    assert type(j1) == type(s1)
+    j2 = c1 + s1
+    assert type(j2) == type(c1)

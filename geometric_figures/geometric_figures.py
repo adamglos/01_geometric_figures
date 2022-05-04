@@ -7,7 +7,7 @@ class Circle:
         self._diameter = self.radius * 2
         self._area = pi * self.radius**2
 
-    def __str__(self) -> str:
+    def __str__(self):
         return str(
             f"Koło (promień={self.radius}, średnica={self.diameter}, pole={round(self.area, 2)})"
         )
@@ -65,6 +65,9 @@ class Square:
     def __init__(self, side):
         self._side = side
         self._area = side**2
+
+    def __str__(self):
+        return str(f"Kwadrat (bok={self.side}, pole={round(self.area, 2)})")
 
     def __add__(self, other):
         joint_area = self.area + other.area
