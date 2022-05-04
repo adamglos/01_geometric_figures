@@ -46,3 +46,33 @@ def test_circle_addition():
     c3 = c1 + c2
     assert type(c3) == Circle
     assert round(c3.area, 2) == round(c1.area + c2.area, 2)
+
+
+def test_square_area():
+    s1 = Square(2)
+    s2 = Square(3)
+    assert s1.area == 4
+    assert s2.area != 4
+    s1.side = 3
+    assert s1.side == s2.side
+
+
+def test_square_comparison():
+    s1 = Square(1)
+    s2 = Square(2)
+    s3 = Square(2)
+    s4 = Square(4)
+
+    assert s2 == s3
+    assert s2 >= s3
+    assert s3 <= s2
+    assert s1 < s2 < s4
+    assert s4 > s3 > s1
+
+
+def test_square_addition():
+    c1 = Square(2)
+    c2 = Square(3)
+    c3 = c1 + c2
+    assert type(s3) == Square
+    assert s3.area == c1.area + c2.area == 13
