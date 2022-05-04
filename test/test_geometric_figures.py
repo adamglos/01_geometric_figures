@@ -74,8 +74,8 @@ def test_square_comparison():
 
 
 def test_square_addition():
-    c1 = Square(2)
-    c2 = Square(3)
-    c3 = c1 + c2
+    s1 = Square(2)
+    s2 = Square(3)
+    s3 = s1 + s2
     assert type(s3) == Square
-    assert s3.area == c1.area + c2.area == 13
+    assert round(s3.area, 0) == round(s1.area + s2.area, 0) == 13
