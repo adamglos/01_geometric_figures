@@ -38,3 +38,9 @@ def test_circle_comparison():
     assert c3 <= c2
     assert c1 < c2 < c4
     assert c4 > c3 > c1
+
+
+def test_circle_addition():
+    c1 = Circle(1)
+    c2 = Circle(2)
+    assert c1 + c2 == c1.area + c2.area
