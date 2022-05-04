@@ -42,5 +42,7 @@ def test_circle_comparison():
 
 def test_circle_addition():
     c1 = Circle(1)
-    c2 = Circle(2)
-    assert c1 + c2 == c1.area + c2.area
+    c2 = Circle(1)
+    c3 = c1 + c2
+    assert type(c3) == Circle
+    assert round(c3.area, 2) == round(c1.area + c2.area, 2)

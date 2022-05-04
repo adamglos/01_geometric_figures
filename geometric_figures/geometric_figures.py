@@ -12,6 +12,11 @@ class Circle:
             f"Koło (promień={self.radius}, średnica={self.diameter}, pole={round(self.area, 2)})"
         )
 
+    def __add__(self, other):
+        joint_area = self.area + other.area
+        joint_radius = sqrt(joint_area / pi)
+        return Circle(joint_radius)
+
     def __eq__(self, other):
         return self.area == other.area
 
