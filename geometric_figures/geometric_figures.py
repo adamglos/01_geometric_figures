@@ -12,6 +12,15 @@ class Circle:
             f"Koło (promień={self.radius}, średnica={self.diameter}, pole={round(self.area, 2)})"
         )
 
+    def __eq__(self, other):
+        return self.area == other.area
+
+    def __gt__(self, other):
+        return self.area > other.area
+
+    def __ge__(self, other):
+        return self.area >= other.area
+
     @property
     def radius(self):
         return self._radius
