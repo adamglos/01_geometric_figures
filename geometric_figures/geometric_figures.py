@@ -1,6 +1,4 @@
 from math import pi, sqrt
-from msilib.schema import Class
-from sunau import Au_read
 
 
 class Circle:
