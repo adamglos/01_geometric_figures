@@ -68,6 +68,20 @@ class Square:
         self._side = side
         self._area = side**2
 
+    def __add__(self, other):
+        joint_area = self.area + other.area
+        joint_side = sqrt(joint_area)
+        return Square(joint_side)
+
+    def __eq__(self, other):
+        return self.area == other.area
+
+    def __gt__(self, other):
+        return self.area > other.area
+
+    def __ge__(self, other):
+        return self.area >= other.area
+
     @property
     def side(self):
         return self._side
