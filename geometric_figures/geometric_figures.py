@@ -1,7 +1,16 @@
+from abc import ABC, abstractmethod
 from math import pi, sqrt
 
 
-class Figure:
+class Figure(ABC):
+    @abstractmethod
+    def area(self, value):
+        pass
+
+    @abstractmethod
+    def __add__(self, other):
+        pass
+
     def __eq__(self, other):
         return self.area == other.area
 
@@ -96,7 +105,3 @@ class Square(Figure):
     def area(self, value):
         self._area = value
         self._side = sqrt(value)
-
-    @property
-    def area(self):
-        return self._area
