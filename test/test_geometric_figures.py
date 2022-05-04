@@ -25,3 +25,16 @@ def test_negative_radius_raises_exception():
     with pytest.raises(ValueError):
         c = Circle(5)
         c.radius = -2
+
+
+def test_circle_comparison():
+    c1 = Circle(1)
+    c2 = Circle(2)
+    c3 = Circle(2)
+    c4 = Circle(4)
+
+    assert c2 == c3
+    assert c2 >= c3
+    assert c3 <= c2
+    assert c1 < c2 < c4
+    assert c4 > c3 > c1
